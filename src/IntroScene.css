@@ -1,0 +1,617 @@
+.intro-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  background: #020202;
+}
+
+.intro-scene__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.045), transparent 24%),
+    radial-gradient(circle at 50% 44%, rgba(60, 150, 255, 0.06), transparent 36%),
+    linear-gradient(180deg, #030303 0%, #090909 50%, #030303 100%);
+}
+
+.intro-scene__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 42%, rgba(0, 0, 0, 0.3) 76%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+/* enter transition */
+.intro-scene--enter {
+  animation: introSceneLiftAway 1.08s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.intro-scene--enter .intro-copy {
+  animation: copyFadeOut 0.42s ease forwards;
+}
+
+.intro-scene--enter .race-layer {
+  animation: raceFadeOut 0.5s ease forwards;
+}
+
+/* gantry */
+
+.gantry-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.gantry {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  transform: translateX(-50%);
+  width: min(88vw, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.55));
+}
+
+.gantry__top {
+  width: 100%;
+  height: clamp(28px, 4vw, 42px);
+  background: linear-gradient(180deg, #101010 0%, #060606 100%);
+  position: relative;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.gantry__top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateY(-9px);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 6%,
+      #0b0b0b 6%,
+      #0b0b0b 14%,
+      transparent 14%,
+      transparent 22%,
+      #0b0b0b 22%,
+      #0b0b0b 30%,
+      transparent 30%,
+      transparent 38%,
+      #0b0b0b 38%,
+      #0b0b0b 46%,
+      transparent 46%,
+      transparent 54%,
+      #0b0b0b 54%,
+      #0b0b0b 62%,
+      transparent 62%,
+      transparent 70%,
+      #0b0b0b 70%,
+      #0b0b0b 78%,
+      transparent 78%,
+      transparent 100%
+    );
+}
+
+.gantry__row {
+  width: calc(100% - 34px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(12px, 1.5vw, 24px);
+  margin-top: 16px;
+}
+
+.gantry__col {
+  min-height: clamp(118px, 16vw, 156px);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(7, 7, 7, 0.98));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 14px);
+  padding: 10px 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.015),
+    0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gantry__col::before,
+.gantry__col::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: #090909;
+}
+
+.gantry__col::before {
+  left: -3px;
+}
+
+.gantry__col::after {
+  right: -3px;
+}
+
+.gantry__light {
+  width: clamp(34px, 5.5vw, 62px);
+  height: clamp(34px, 5.5vw, 62px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #4b0b0b 0%, #230404 55%, #0a0101 100%);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.04),
+    0 0 0 2px rgba(0, 0, 0, 0.5),
+    0 0 14px rgba(140, 0, 0, 0.18);
+  transition: all 0.24s ease;
+}
+
+.gantry__light.is-on {
+  background: radial-gradient(circle at 35% 35%, #ff9e9e 0%, #ff2b2b 36%, #a80000 100%);
+  box-shadow:
+    0 0 26px rgba(255, 40, 40, 0.78),
+    0 0 60px rgba(255, 25, 25, 0.42),
+    0 0 96px rgba(255, 0, 0, 0.18),
+    inset 0 0 14px rgba(255, 255, 255, 0.24);
+}
+
+.gantry__base {
+  width: calc(100% - 28px);
+  height: 10px;
+  background: linear-gradient(180deg, #0f0f0f 0%, #060606 100%);
+  margin-top: -1px;
+}
+
+.intro-scene--race .gantry-wrap,
+.intro-scene--message .gantry-wrap,
+.intro-scene--enter .gantry-wrap {
+  animation: gantryFade 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* race layer */
+
+.race-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.track-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: trackAppear 0.25s ease forwards;
+}
+
+.track-lines span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 170vh;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform-origin: center;
+  animation: trackMove 2.1s ease-out forwards;
+}
+
+.track-lines span:nth-child(1) { transform: translate(-50%, -50%) rotate(-26deg); }
+.track-lines span:nth-child(2) { transform: translate(-50%, -50%) rotate(-12deg); }
+.track-lines span:nth-child(3) { transform: translate(-50%, -50%) rotate(0deg); }
+.track-lines span:nth-child(4) { transform: translate(-50%, -50%) rotate(12deg); }
+.track-lines span:nth-child(5) { transform: translate(-50%, -50%) rotate(26deg); }
+
+/* copy */
+
+.intro-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 20px;
+}
+
+.lights-out-text {
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: 0.14em;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.97);
+  text-shadow:
+    0 0 16px rgba(255, 255, 255, 0.08),
+    0 0 36px rgba(255, 255, 255, 0.05);
+  animation: copyRise 0.7s ease forwards;
+}
+
+.begin-button {
+  position: relative;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.96rem, 2vw, 1.22rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 28px 34px;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.begin-button__inner {
+  position: relative;
+  z-index: 4;
+  display: inline-block;
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 22px rgba(255, 255, 255, 0.06);
+  animation:
+    copyRise 0.9s ease forwards,
+    beginBlink 1.8s ease-in-out 0.2s 1;
+}
+
+.begin-button__glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 440px;
+  height: 190px;
+  transform: translate(-50%, -56%) rotate(-12deg);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  background:
+    radial-gradient(
+      ellipse at 32% 40%,
+      rgba(92, 230, 255, 0.32) 0%,
+      rgba(38, 150, 255, 0.17) 28%,
+      rgba(12, 53, 116, 0.08) 48%,
+      rgba(0, 0, 0, 0) 74%
+    );
+  filter: blur(30px);
+  animation:
+    beginGlowIn 0.9s ease forwards,
+    beginGlowPulse 2.8s ease-in-out 1.1s infinite;
+}
+
+.begin-button__beam {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 390px;
+  height: 92px;
+  transform: translate(-50%, -84%) rotate(-12deg);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  background:
+    linear-gradient(
+      102deg,
+      rgba(116, 242, 255, 0) 0%,
+      rgba(116, 242, 255, 0.03) 16%,
+      rgba(116, 242, 255, 0.16) 40%,
+      rgba(116, 242, 255, 0.26) 52%,
+      rgba(116, 242, 255, 0.08) 72%,
+      rgba(116, 242, 255, 0) 100%
+    );
+  filter: blur(18px);
+  animation:
+    beginGlowIn 0.9s ease 0.08s forwards,
+    beginBeamPulse 2.4s ease-in-out 1.1s infinite;
+}
+
+.begin-button__beamline {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 240px;
+  height: 2px;
+  transform: translate(-50%, -160%) rotate(-12deg);
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(120, 240, 255, 0) 0%,
+    rgba(120, 240, 255, 0.85) 50%,
+    rgba(120, 240, 255, 0) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(120, 240, 255, 0.35),
+    0 0 22px rgba(120, 240, 255, 0.16);
+  animation:
+    beginGlowIn 0.7s ease 0.12s forwards,
+    beginBeamlineBlink 2s ease-in-out 0.4s infinite;
+}
+
+.begin-button:hover .begin-button__inner,
+.begin-button:focus-visible .begin-button__inner {
+  color: rgba(255, 255, 255, 1);
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.28),
+    0 0 32px rgba(120, 240, 255, 0.12);
+  outline: none;
+}
+
+.begin-button:hover .begin-button__glow,
+.begin-button:focus-visible .begin-button__glow {
+  opacity: 1;
+  filter: blur(28px) brightness(1.08);
+}
+
+.begin-button:hover .begin-button__beam,
+.begin-button:focus-visible .begin-button__beam {
+  opacity: 1;
+}
+
+.begin-button:hover .begin-button__beamline,
+.begin-button:focus-visible .begin-button__beamline {
+  opacity: 1;
+}
+
+/* reveal transition */
+.reveal-transition {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.reveal-transition__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0%;
+  background: #050505;
+  animation: revealBarRise 0.82s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.reveal-transition__shine {
+  position: absolute;
+  left: -20%;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-18deg);
+  animation: revealShineSweep 0.72s ease forwards;
+}
+
+.intro-scene--enter .begin-button {
+  pointer-events: none;
+}
+
+.intro-scene--enter .begin-button__inner,
+.intro-scene--enter .begin-button__glow,
+.intro-scene--enter .begin-button__beam,
+.intro-scene--enter .begin-button__beamline {
+  animation-play-state: paused;
+}
+
+/* keyframes */
+
+@keyframes gantryFade {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes trackAppear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes trackMove {
+  0% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  16% {
+    opacity: 0.58;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+@keyframes copyRise {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes beginGlowIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-12deg) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes beginGlowPulse {
+  0%, 100% {
+    opacity: 0.72;
+    transform: translate(-50%, -56%) rotate(-12deg) scale(1);
+  }
+  50% {
+    opacity: 0.96;
+    transform: translate(-50%, -56%) rotate(-12deg) scale(1.05);
+  }
+}
+
+@keyframes beginBeamPulse {
+  0%, 100% {
+    opacity: 0.42;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+@keyframes beginBeamlineBlink {
+  0%, 100% {
+    opacity: 0.58;
+  }
+  15% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 0.34;
+  }
+  40% {
+    opacity: 0.92;
+  }
+  55% {
+    opacity: 0.56;
+  }
+}
+
+@keyframes beginBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.38;
+  }
+  18% {
+    opacity: 0.96;
+  }
+  27% {
+    opacity: 0.62;
+  }
+  38% {
+    opacity: 1;
+  }
+}
+
+@keyframes revealBarRise {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes revealShineSweep {
+  0% {
+    transform: translateX(0) skewX(-18deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(320%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes copyFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes raceFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes introSceneLiftAway {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-2.5vh);
+  }
+}
+
+@media (max-width: 900px) {
+  .begin-button__glow {
+    width: 330px;
+    height: 150px;
+  }
+
+  .begin-button__beam {
+    width: 300px;
+    height: 74px;
+  }
+
+  .begin-button__beamline {
+    width: 190px;
+  }
+}
+
+@media (max-width: 700px) {
+  .gantry {
+    top: 18%;
+    width: 94vw;
+  }
+
+  .gantry__row {
+    width: calc(100% - 16px);
+    gap: 10px;
+  }
+
+  .lights-out-text {
+    letter-spacing: 0.08em;
+  }
+
+  .begin-button {
+    letter-spacing: 0.16em;
+    padding: 22px 18px;
+  }
+
+  .begin-button__glow {
+    width: 240px;
+    height: 118px;
+    transform: translate(-50%, -58%) rotate(-12deg);
+  }
+
+  .begin-button__beam {
+    width: 210px;
+    height: 56px;
+    transform: translate(-50%, -84%) rotate(-12deg);
+  }
+
+  .begin-button__beamline {
+    width: 130px;
+    transform: translate(-50%, -145%) rotate(-12deg);
+  }
+}
