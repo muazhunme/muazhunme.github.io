@@ -1,137 +1,202 @@
+import { motion } from "framer-motion";
+import HoverText from "./HoverText";
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -40 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 40 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
 function App() {
   return (
     <>
       <header className="navbar">
-        <div className="nav-logo">MK</div>
+        <div className="nav-logo">MUAZ</div>
 
         <nav className="nav-links">
           <a href="#about">About</a>
-          <a href="#projects">Projects</a>
+          <a href="#work">Work</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main>
-        <section className="hero">
-          <div className="hero-content">
-            <p className="eyebrow">Data Science • Software • Portfolio</p>
-            <h1>Hi, I’m Muaz Khan</h1>
-            <p className="hero-text">
-              I’m an IT student focused on data science, software, and building
-              practical projects that solve real problems.
-            </p>
+        <section className="hero-creative">
+          <div className="hero-grid">
+            <motion.div
+              className="hero-left"
+              initial="hidden"
+              animate="show"
+              variants={fadeLeft}
+            >
+              <p className="hero-kicker">DATA SCIENCE • SOFTWARE • CREATIVE TECH</p>
 
-            <div className="hero-buttons">
-              <a href="#projects" className="btn btn-primary">
-                View Projects
-              </a>
-              <a href="#contact" className="btn btn-secondary">
-                Contact Me
-              </a>
-            </div>
+              <h1 className="hero-title">
+                <HoverText
+                  text="Building digital work that feels"
+                  className="interactive-heading"
+                  as="span"
+                />
+                <br />
+                <HoverText
+                  text="sharp, modern, and"
+                  className="interactive-heading gradient-text"
+                  as="span"
+                />
+                <br />
+                <HoverText
+                  text="alive."
+                  className="interactive-heading gradient-text"
+                  as="span"
+                />
+              </h1>
+
+              <p className="hero-description">
+                I’m Muaz Khan, an IT student focused on data science, software,
+                analytics, and building projects that look good and solve real
+                problems.
+              </p>
+
+              <div className="hero-actions">
+                <a href="#work" className="btn btn-main">
+                  Explore Work
+                </a>
+                <a href="#contact" className="btn btn-ghost">
+                  Let’s Talk
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="hero-right"
+              initial="hidden"
+              animate="show"
+              variants={fadeRight}
+            >
+              <div className="floating-card card-one">
+                <p className="mini-label">FEATURED</p>
+                <h3>
+                  <HoverText
+                    text="Portfolio System"
+                    className="card-hover-title"
+                    as="span"
+                  />
+                </h3>
+                <p>
+                  React-based personal website with motion, modern layout, and
+                  interactive sections.
+                </p>
+              </div>
+
+              <div className="floating-card card-two">
+                <p className="mini-label">PROJECT</p>
+                <h3>
+                  <HoverText
+                    text="Airbnb Prediction"
+                    className="card-hover-title"
+                    as="span"
+                  />
+                </h3>
+                <p>
+                  Data cleaning, feature engineering, regression modelling, and
+                  evaluation workflow.
+                </p>
+              </div>
+
+              <div className="floating-card card-three">
+                <p className="mini-label">SKILLS</p>
+                <h3>
+                  <HoverText
+                    text="Python • SQL • React"
+                    className="card-hover-title"
+                    as="span"
+                  />
+                </h3>
+                <p>
+                  Data analysis, dashboards, databases, and front-end
+                  development.
+                </p>
+              </div>
+
+              <div className="hero-orb orb-one"></div>
+              <div className="hero-orb orb-two"></div>
+            </motion.div>
           </div>
         </section>
 
-        <section id="about" className="section">
-          <div className="section-container">
-            <p className="section-label">About</p>
-            <h2>Building practical skills in data and software</h2>
-            <p className="section-text">
-              I am currently studying IT with a focus on data science and enjoy
-              working on projects involving Python, SQL, analytics, and web
-              development. My goal is to create useful, well-designed solutions
-              while continuing to grow as a developer.
+        <section id="about" className="placeholder-section">
+          <motion.div
+            className="placeholder-content"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <p className="section-tag">About</p>
+            <h2>
+              <HoverText
+                text="A more designed portfolio starts here."
+                className="section-hover-title"
+                as="span"
+              />
+            </h2>
+            <p>
+              Next we’ll turn this into a stronger portfolio with editorial
+              sections, better project showcases, and richer interactions.
             </p>
-
-            <div className="about-grid">
-              <div className="info-card">
-                <h3>Education</h3>
-                <p>Bachelor of IT – Data Science</p>
-                <p>Macquarie University</p>
-              </div>
-
-              <div className="info-card">
-                <h3>Skills</h3>
-                <p>Python, SQL, R, React, Data Analysis</p>
-              </div>
-
-              <div className="info-card">
-                <h3>Interests</h3>
-                <p>AI, dashboards, software projects, sports analytics</p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </section>
 
-        <section id="projects" className="section">
-          <div className="section-container">
-            <p className="section-label">Projects</p>
-            <h2>Some things I’ve worked on</h2>
-            <p className="section-text">
-              Here are a few example projects that show my interest in data,
-              software, and solving practical problems.
+        <section id="work" className="placeholder-section alt">
+          <motion.div
+            className="placeholder-content"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <p className="section-tag">Work</p>
+            <h2>
+              <HoverText
+                text="Projects should feel showcased, not listed."
+                className="section-hover-title"
+                as="span"
+              />
+            </h2>
+            <p>
+              The next stage is replacing simple cards with featured project
+              panels, visual hierarchy, and real links.
             </p>
-
-            <div className="projects-grid">
-              <article className="project-card">
-                <p className="project-type">Data Science</p>
-                <h3>Airbnb Price Prediction</h3>
-                <p>
-                  Built regression models to predict Airbnb listing prices using
-                  data cleaning, feature selection, and model evaluation.
-                </p>
-                <div className="project-tags">
-                  <span>Python</span>
-                  <span>Pandas</span>
-                  <span>Scikit-learn</span>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <p className="project-type">Web / Software</p>
-                <h3>Portfolio Website</h3>
-                <p>
-                  Developed a personal website in React to showcase projects,
-                  skills, and experience in a clean and modern design.
-                </p>
-                <div className="project-tags">
-                  <span>React</span>
-                  <span>CSS</span>
-                  <span>Vite</span>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <p className="project-type">Database</p>
-                <h3>SQL Business Database</h3>
-                <p>
-                  Designed and queried a relational database with business rules,
-                  structured tables, and practical SQL operations.
-                </p>
-                <div className="project-tags">
-                  <span>SQL</span>
-                  <span>MySQL</span>
-                  <span>ERD</span>
-                </div>
-              </article>
-            </div>
-          </div>
+          </motion.div>
         </section>
 
-        <section id="contact" className="section">
-          <div className="section-container">
-            <p className="section-label">Contact</p>
-            <h2>Let’s connect</h2>
-            <p className="section-text">
-              You can reach me for internships, collaborations, or project
-              opportunities.
-            </p>
-
-            <div className="contact-box">
-              <p>Email: 7muazkhan@gmail.com</p>
-              <p>Location: Sydney, Australia</p>
-            </div>
-          </div>
+        <section id="contact" className="placeholder-section">
+          <motion.div
+            className="placeholder-content"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <p className="section-tag">Contact</p>
+            <h2>
+              <HoverText
+                text="7muazkhan@gmail.com"
+                className="section-hover-title"
+                as="span"
+              />
+            </h2>
+            <p>Sydney, Australia</p>
+          </motion.div>
         </section>
       </main>
     </>
