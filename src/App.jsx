@@ -87,7 +87,9 @@ function App() {
                   Hi, I am Muaz
                 </p>
                 <h1 className="hero-title">
-                  I am a software developer
+                  <span className="title-line">I am a</span>
+                  <span className="title-line">software</span>
+                  <span className="title-line developer-word">developer</span>
                 </h1>
                 <p className="hero-text">
                   I build software, data projects, and interactive web
@@ -104,9 +106,9 @@ function App() {
                   </button>
                 </div>
               </div>
-              <div className="hero-art">
-                <div className="art-ring art-ring-one" />
+              <div className="hero-art" aria-label="Floating cartoon portrait of Muaz Khan">
                 <img
+                  className="hero-character"
                   src="/muaz-cartoon-portrait.webp"
                   alt="Cartoon portrait of Muaz Khan"
                   width="1100"
