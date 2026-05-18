@@ -3,12 +3,12 @@ import { useState } from "react";
 const projects = [
   {
     code: "P01",
-    title: "Ecommerce Revenue Dashboard",
-    type: "Dashboard / Business Intelligence",
+    title: "AI-Powered Community Intelligence Dashboard",
+    type: "Data Science / NLP / Business Intelligence",
     description:
-      "A dashboard concept for tracking online store revenue, orders, refunds, top products, repeat customers, and monthly performance.",
-    tools: "Excel, Power BI, Python, Pandas",
-    status: "Demo project",
+      "A generalized analytics pipeline that turns community posts, comments, and user data into dashboard-ready CSVs and business insight reports.",
+    tools: "Python, Pandas, NLP, Sentence-Transformers, VADER, KeyBERT",
+    status: "In progress",
   },
   {
     code: "P02",
@@ -34,7 +34,7 @@ const projects = [
     type: "AI / NLP",
     description:
       "An NLP project that analyses customer reviews to identify sentiment, common complaints, praised features, and product improvement opportunities.",
-    tools: "Python, NLP, VADER/TextBlob, Pandas",
+    tools: "Python, NLP, VADER Sentiment, Pandas, Matplotlib",
     status: "Demo project",
   },
   {
@@ -48,7 +48,7 @@ const projects = [
   },
 ];
 
-const services = [
+const focusAreas = [
   {
     title: "Data Cleaning",
     description:
@@ -74,7 +74,7 @@ const services = [
     deliverables: "Sentiment report, theme breakdown, action recommendations",
   },
   {
-    title: "AI Automation & Insight Generation",
+    title: "AI Insight Generation",
     description:
       "Create simple tools or scripts that turn CSV files, reviews, or business data into automated summaries, charts, and insight reports.",
     deliverables: "Python script, Streamlit-style prototype, automated report output",
@@ -84,11 +84,34 @@ const services = [
 const skills = [
   "Python",
   "SQL",
+  "R",
+  "React",
+  "HTML/CSS",
+  "JavaScript",
   "Excel",
   "Power BI",
   "Pandas",
+  "NumPy",
+  "Matplotlib",
+  "Scikit-learn",
+  "PyTorch",
+  "Sentence-Transformers",
+  "Transformers",
+  "KeyBERT",
+  "VADER Sentiment",
+  "OpenPyXL",
   "Data cleaning",
+  "Data validation",
+  "Feature engineering",
+  "Exploratory data analysis",
+  "NLP",
+  "Topic modelling",
+  "Semantic embeddings",
+  "Sentiment analysis",
+  "Audience segmentation",
   "Dashboards",
+  "Automated data pipelines",
+  "Report automation",
   "AI-assisted analysis",
   "GitHub",
 ];
@@ -120,7 +143,7 @@ function App() {
             Projects
           </button>
           <button type="button" onClick={() => showView("games")}>
-            Services
+            Focus
           </button>
           <button type="button" onClick={() => showView("about")}>
             About
@@ -141,13 +164,13 @@ function App() {
                 </p>
                 <h1 className="hero-title">
                   <span className="title-line">Data</span>
-                  <span className="title-line">dashboards</span>
+                  <span className="title-line">science</span>
                   <span className="title-line developer-word">and AI insights</span>
                 </h1>
                 <p className="hero-text">
-                  I turn messy Excel, CSV, and customer feedback data into
-                  clean dashboards, analysis reports, and practical
-                  AI-powered insights.
+                  I am a Data Science-focused IT student building practical
+                  analytics, dashboards, NLP systems, and AI-supported tools
+                  that turn raw data into clear decisions.
                 </p>
                 <div className="hero-actions">
                   <button
@@ -202,16 +225,15 @@ function App() {
         {view === "games" && (
           <section className="page-view section-split">
             <div className="section-heading">
-              <p className="eyebrow">Services</p>
-              <h2>What I can help build with data.</h2>
+              <p className="eyebrow">Focus areas</p>
+              <h2>Data science skills I am building into real projects.</h2>
               <p>
-                Focused data work for cleaning spreadsheets, building
-                dashboards, analysing customer behaviour, and turning feedback
-                into clear next steps.
+                My work sits around practical analytics, dashboard-ready data,
+                NLP, automated reporting, and AI-assisted decision support.
               </p>
             </div>
             <div className="game-list">
-              {services.map((service, index) => (
+              {focusAreas.map((service, index) => (
                 <div
                   className="game-tile"
                   key={service.title}
@@ -231,13 +253,14 @@ function App() {
         {view === "about" && (
           <section className="page-view about-panel">
             <div>
-              <h2>Data science, dashboards, and practical AI tools.</h2>
+              <h2>Data science, analytics, and practical AI tools.</h2>
             </div>
             <p>
-              I am Muaz Khan, a data science-focused developer based in
-              Australia. I work with Python, SQL, Excel, dashboards, and
-              AI-assisted analysis to turn raw data into clean, understandable,
-              and useful insights.
+              I am Muaz Ahmad Khan, based in Sydney and studying a Bachelor of
+              Information Technology in Data Science at Macquarie University.
+              I work with Python, SQL, R, dashboards, NLP, machine learning,
+              and automated reporting to turn raw data into clear,
+              evidence-based insights.
             </p>
             <div className="skill-grid">
               {skills.map((skill) => (
@@ -249,11 +272,11 @@ function App() {
 
         {view === "contact" && (
           <section className="page-view contact-section">
-            <h2>Have a dataset, dashboard idea, or feedback problem?</h2>
+            <h2>Want to talk data, dashboards, or AI projects?</h2>
             <p>
-              I can help turn spreadsheets, CSV files, reviews, and business
-              data into a clean report, dashboard, or AI-powered insight
-              workflow.
+              I am interested in data science, analytics, business
+              intelligence, NLP, dashboarding, and AI-supported decision-making
+              opportunities.
             </p>
             <div className="contact-actions">
               <a className="button button-primary" href="mailto:7muazkhan@gmail.com">
