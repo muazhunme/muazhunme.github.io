@@ -163,14 +163,13 @@ function App() {
                   Hi, I am Muaz
                 </p>
                 <h1 className="hero-title">
-                  <span className="title-line">Data</span>
-                  <span className="title-line">science</span>
-                  <span className="title-line developer-word">and AI insights</span>
+                  <span className="title-line">I am a</span>
+                  <span className="title-line">data</span>
+                  <span className="title-line developer-word">analyst</span>
                 </h1>
                 <p className="hero-text">
-                  I am a Data Science-focused IT student building practical
-                  analytics, dashboards, NLP systems, and AI-supported tools
-                  that turn raw data into clear decisions.
+                  I use Python, SQL, Excel, dashboards, and AI-assisted
+                  analysis to turn raw data into clear, useful insights.
                 </p>
                 <div className="hero-actions">
                   <button
