@@ -3,40 +3,93 @@ import { useState } from "react";
 const projects = [
   {
     code: "P01",
-    title: "Data Project",
-    type: "Analytics / Python",
+    title: "Ecommerce Revenue Dashboard",
+    type: "Dashboard / Business Intelligence",
     description:
-      "A future case study for cleaning, modelling, and turning messy data into useful decisions.",
-    status: "Placeholder",
+      "A dashboard concept for tracking online store revenue, orders, refunds, top products, repeat customers, and monthly performance.",
+    tools: "Excel, Power BI, Python, Pandas",
+    status: "Demo project",
   },
   {
     code: "P02",
-    title: "Web App",
-    type: "React / Full Stack",
+    title: "SaaS Churn Analysis Report",
+    type: "Data Analysis",
     description:
-      "A polished project slot for a real application, live demo, GitHub repository, and build notes.",
-    status: "Coming soon",
+      "A subscription business analysis focused on churn rate, cancelled users, retention patterns, customer lifetime value, and revenue risk.",
+    tools: "Python, Pandas, SQL, Excel",
+    status: "Demo project",
   },
   {
     code: "P03",
-    title: "Automation Tool",
-    type: "Software / Workflow",
+    title: "Customer Segmentation Analysis",
+    type: "Data Science / Marketing Analytics",
     description:
-      "A space for tools that save time, connect systems, or make repetitive work feel lighter.",
-    status: "Queued",
+      "A customer analytics project that groups customers by spending behaviour, purchase frequency, value, and marketing potential.",
+    tools: "Python, Pandas, Scikit-learn, Excel",
+    status: "Demo project",
+  },
+  {
+    code: "P04",
+    title: "Product Review Sentiment Analysis",
+    type: "AI / NLP",
+    description:
+      "An NLP project that analyses customer reviews to identify sentiment, common complaints, praised features, and product improvement opportunities.",
+    tools: "Python, NLP, VADER/TextBlob, Pandas",
+    status: "Demo project",
+  },
+  {
+    code: "P05",
+    title: "CSV-to-Business-Insights Generator",
+    type: "AI Automation",
+    description:
+      "A tool concept that takes a business CSV file, cleans basic issues, detects useful columns, creates summary charts, and generates plain-English insights.",
+    tools: "Python, Pandas, Streamlit, AI-assisted analysis",
+    status: "Demo project",
   },
 ];
 
-const games = ["Browser game", "Puzzle demo", "Interactive prototype", "Creative experiment"];
+const services = [
+  {
+    title: "Data Cleaning",
+    description:
+      "Clean messy Excel, CSV, CRM, ecommerce, subscription, and marketing datasets so they are ready for analysis and dashboards.",
+    deliverables: "Cleaned dataset, data quality report, duplicate and missing value summary",
+  },
+  {
+    title: "Dashboard Development",
+    description:
+      "Build clear Excel or Power BI-style dashboards for sales, ecommerce, SaaS, marketing, finance, and operations data.",
+    deliverables: "KPI dashboard, interactive visuals, business summary",
+  },
+  {
+    title: "Business Data Analysis",
+    description:
+      "Analyse business data to find trends, customer segments, churn patterns, product performance, and pricing insights.",
+    deliverables: "Analysis report, charts, recommendations",
+  },
+  {
+    title: "Customer Feedback & Sentiment Analysis",
+    description:
+      "Analyse reviews, surveys, support tickets, app store reviews, and social media comments to find sentiment, themes, complaints, and opportunities.",
+    deliverables: "Sentiment report, theme breakdown, action recommendations",
+  },
+  {
+    title: "AI Automation & Insight Generation",
+    description:
+      "Create simple tools or scripts that turn CSV files, reviews, or business data into automated summaries, charts, and insight reports.",
+    deliverables: "Python script, Streamlit-style prototype, automated report output",
+  },
+];
 
 const skills = [
-  "React",
-  "JavaScript",
   "Python",
   "SQL",
-  "Data analysis",
-  "Three.js",
-  "Creative tech",
+  "Excel",
+  "Power BI",
+  "Pandas",
+  "Data cleaning",
+  "Dashboards",
+  "AI-assisted analysis",
   "GitHub",
 ];
 
@@ -67,7 +120,7 @@ function App() {
             Projects
           </button>
           <button type="button" onClick={() => showView("games")}>
-            Experiments
+            Services
           </button>
           <button type="button" onClick={() => showView("about")}>
             About
@@ -87,14 +140,14 @@ function App() {
                   Hi, I am Muaz
                 </p>
                 <h1 className="hero-title">
-                  <span className="title-line">I am a</span>
-                  <span className="title-line">software</span>
-                  <span className="title-line developer-word">developer</span>
+                  <span className="title-line">Data</span>
+                  <span className="title-line">dashboards</span>
+                  <span className="title-line developer-word">and AI insights</span>
                 </h1>
                 <p className="hero-text">
-                  I build software, data projects, and interactive web
-                  experiences. This portfolio will collect my projects, games,
-                  and resume in one polished place.
+                  I turn messy Excel, CSV, and customer feedback data into
+                  clean dashboards, analysis reports, and practical
+                  AI-powered insights.
                 </p>
                 <div className="hero-actions">
                   <button
@@ -102,7 +155,7 @@ function App() {
                     type="button"
                     onClick={() => showView("projects")}
                   >
-                    View my projects
+                    View data projects
                   </button>
                 </div>
               </div>
@@ -124,7 +177,7 @@ function App() {
           <section className="page-view">
             <div className="section-heading">
               <p className="eyebrow">Featured work</p>
-              <h2>Project slots ready for real case studies.</h2>
+              <h2>Data projects built around real business questions.</h2>
             </div>
             <div className="project-grid">
               {projects.map((project) => (
@@ -139,6 +192,7 @@ function App() {
                   <h3>{project.title}</h3>
                   <p className="project-type">{project.type}</p>
                   <p>{project.description}</p>
+                  <p className="project-tools">{project.tools}</p>
                 </article>
               ))}
             </div>
@@ -148,21 +202,26 @@ function App() {
         {view === "games" && (
           <section className="page-view section-split">
             <div className="section-heading">
-              <p className="eyebrow">Game shelf</p>
-              <h2>Games and experiments will live here.</h2>
+              <p className="eyebrow">Services</p>
+              <h2>What I can help build with data.</h2>
               <p>
-                These placeholders will later become playable demos, GitHub
-                links, build notes, and short clips.
+                Focused data work for cleaning spreadsheets, building
+                dashboards, analysing customer behaviour, and turning feedback
+                into clear next steps.
               </p>
             </div>
             <div className="game-list">
-              {games.map((game, index) => (
+              {services.map((service, index) => (
                 <div
                   className="game-tile"
-                  key={game}
+                  key={service.title}
                 >
                   <span>0{index + 1}</span>
-                  <strong>{game}</strong>
+                  <div>
+                    <strong>{service.title}</strong>
+                    <p>{service.description}</p>
+                    <small>{service.deliverables}</small>
+                  </div>
                 </div>
               ))}
             </div>
@@ -172,13 +231,13 @@ function App() {
         {view === "about" && (
           <section className="page-view about-panel">
             <div>
-              <h2>Software, data, and interactive ideas.</h2>
+              <h2>Data science, dashboards, and practical AI tools.</h2>
             </div>
             <p>
-              This section will grow into a fuller resume profile once the final
-              content is ready. For now it sets the tone: thoughtful
-              engineering, clear presentation, and a site that feels alive
-              without getting loud.
+              I am Muaz Khan, a data science-focused developer based in
+              Australia. I work with Python, SQL, Excel, dashboards, and
+              AI-assisted analysis to turn raw data into clean, understandable,
+              and useful insights.
             </p>
             <div className="skill-grid">
               {skills.map((skill) => (
@@ -190,7 +249,12 @@ function App() {
 
         {view === "contact" && (
           <section className="page-view contact-section">
-            <h2>Ready for real projects, game embeds, and the resume file.</h2>
+            <h2>Have a dataset, dashboard idea, or feedback problem?</h2>
+            <p>
+              I can help turn spreadsheets, CSV files, reviews, and business
+              data into a clean report, dashboard, or AI-powered insight
+              workflow.
+            </p>
             <div className="contact-actions">
               <a className="button button-primary" href="mailto:7muazkhan@gmail.com">
                 7muazkhan@gmail.com

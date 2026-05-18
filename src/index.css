@@ -413,6 +413,13 @@ h1 {
   font-weight: 900;
 }
 
+.project-card .project-tools {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
 .section-split {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.7fr);
@@ -440,6 +447,22 @@ h1 {
 .game-tile:hover {
   transform: translateY(-3px) scale(1.01);
   border-color: rgba(255, 255, 255, 0.28);
+}
+
+.game-tile p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.game-tile small {
+  display: block;
+  margin-top: 8px;
+  color: var(--accent-bright);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .game-tile span {
