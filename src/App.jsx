@@ -46,6 +46,21 @@ const projects = [
     tools: "Python, Pandas, Streamlit, AI-assisted analysis",
     status: "Demo project",
   },
+  {
+    code: "P06",
+    title: "Business Automation ROI Calculator",
+    type: "Automation / ROI Modelling / Business Analytics",
+    description:
+      "A browser-based automation assessment tool for Australian businesses that estimates readiness, savings, risk range, payback, and whether a process should be automated, improved first, or reviewed by stakeholders.",
+    tools: "JavaScript, HTML/CSS, CSV import, ROI modelling, GitHub Pages",
+    status: "Live project",
+    links: [
+      {
+        label: "View GitHub",
+        href: "https://github.com/muazhunme/automation-roi-calculator",
+      },
+    ],
+  },
 ];
 
 const focusAreas = [
@@ -215,6 +230,15 @@ function App() {
                   <p className="project-type">{project.type}</p>
                   <p>{project.description}</p>
                   <p className="project-tools">{project.tools}</p>
+                  {project.links && (
+                    <div className="project-actions">
+                      {project.links.map((link) => (
+                        <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
