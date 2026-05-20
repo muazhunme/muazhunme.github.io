@@ -56,6 +56,10 @@ const projects = [
     status: "Live project",
     links: [
       {
+        label: "Open live app",
+        href: "https://muazhunme.github.io/automation-roi-calculator/",
+      },
+      {
         label: "View GitHub",
         href: "https://github.com/muazhunme/automation-roi-calculator",
       },
