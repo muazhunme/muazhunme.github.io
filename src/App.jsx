@@ -9,6 +9,12 @@ const projects = [
       "A generalized analytics pipeline that turns community posts, comments, and user data into dashboard-ready CSVs and business insight reports.",
     tools: "Python, Pandas, NLP, Sentence-Transformers, VADER, KeyBERT",
     status: "In progress",
+    links: [
+      {
+        label: "View GitHub",
+        href: "https://github.com/muazhunme/ai-powered-community-intelligence-dashboard",
+      },
+    ],
   },
   {
     code: "P02",
