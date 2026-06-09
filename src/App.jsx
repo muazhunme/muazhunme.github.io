@@ -2,25 +2,6 @@ import { useEffect, useState } from "react";
 
 const projects = [
   {
-    code: "P01",
-    title: "E-Commerce Order Risk Prediction",
-    type: "Machine Learning / Risk Scoring / Customer Experience",
-    description:
-      "A machine learning case study that predicts which ecommerce orders are most likely to lead to a poor customer experience, then explains the risk in a business-friendly frontend demo.",
-    tools: "Python, Pandas, Scikit-learn, LightGBM, XGBoost, SHAP, GitHub Pages",
-    status: "Live demo",
-    links: [
-      {
-        label: "Open live demo",
-        href: "https://muazhunme.github.io/ecommerce-ml-order-risk/",
-      },
-      {
-        label: "View GitHub",
-        href: "https://github.com/muazhunme/muazhunme.github.io/tree/animated-character-loop/projects/ecommerce-ml-order-risk",
-      },
-    ],
-  },
-  {
     code: "P02",
     title: "AI-Powered Community Intelligence Dashboard",
     type: "Data Science / NLP / Business Intelligence",
@@ -58,12 +39,22 @@ const projects = [
   },
   {
     code: "P06",
-    title: "CSV-to-Business-Insights Generator",
-    type: "AI Automation",
+    title: "E-Commerce Order Risk Prediction",
+    type: "Machine Learning / Risk Scoring / Customer Experience",
     description:
-      "A tool concept that takes a business CSV file, cleans basic issues, detects useful columns, creates summary charts, and generates plain-English insights.",
-    tools: "Python, Pandas, Streamlit, AI-assisted analysis",
-    status: "Demo project",
+      "A machine learning case study that predicts which ecommerce orders are most likely to lead to a poor customer experience, then explains the risk in a business-friendly frontend demo.",
+    tools: "Python, Pandas, Scikit-learn, LightGBM, XGBoost, SHAP, GitHub Pages",
+    status: "Live demo",
+    links: [
+      {
+        label: "Open live demo",
+        href: "https://muazhunme.github.io/ecommerce-ml-order-risk/",
+      },
+      {
+        label: "View GitHub",
+        href: "https://github.com/muazhunme/ecommerce-ml-order-risk",
+      },
+    ],
   },
   {
     code: "P07",
