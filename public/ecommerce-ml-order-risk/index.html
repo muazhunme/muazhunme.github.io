@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce Order Risk Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Machine learning case study</p>
+          <h1>E-Commerce Order Risk Prediction</h1>
+          <p>
+            A decision-support system that ranks orders by bad-review risk so
+            support teams can focus on the customers most likely to have a poor
+            experience.
+          </p>
+        </div>
+        <div class="hero-panel" aria-label="Project metrics">
+          <div>
+            <span class="metric-value">98,673</span>
+            <span class="metric-label">orders analyzed</span>
+          </div>
+          <div>
+            <span class="metric-value">49</span>
+            <span class="metric-label">modeling columns</span>
+          </div>
+          <div>
+            <span class="metric-value">3.8x</span>
+            <span class="metric-label">PR-AUC lift vs random</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="workflow" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <p class="eyebrow">What happened</p>
+          <h2 id="workflow-title">From messy business tables to support actions</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span class="step-number">01</span>
+            <h3>Raw e-commerce tables</h3>
+            <p>Orders, customers, sellers, products, payments, reviews, and order items.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <h3>Feature engineering</h3>
+            <p>Delivery delay, seller reliability, category risk, payment patterns, and order complexity.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <h3>Risk model</h3>
+            <p>LightGBM ranks orders by likelihood of producing a bad customer review.</p>
+          </article>
+          <article>
+            <span class="step-number">04</span>
+            <h3>Support decision</h3>
+            <p>Orders become low, medium, high, or critical risk with recommended actions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-grid" aria-labelledby="demo-title">
+        <div class="section-heading">
+          <p class="eyebrow">Dummy example</p>
+          <h2 id="demo-title">Try a support-risk scenario</h2>
+        </div>
+        <div class="simulator">
+          <div class="controls">
+            <label>
+              Delivery delay days
+              <input id="delay" type="range" min="-10" max="25" value="6" />
+              <span id="delayValue">6</span>
+            </label>
+            <label>
+              Seller prior bad-review rate
+              <input id="sellerRisk" type="range" min="0" max="40" value="22" />
+              <span id="sellerRiskValue">22%</span>
+            </label>
+            <label>
+              Category prior bad-review rate
+              <input id="categoryRisk" type="range" min="0" max="35" value="17" />
+              <span id="categoryRiskValue">17%</span>
+            </label>
+            <label>
+              Items in order
+              <input id="itemCount" type="range" min="1" max="6" value="2" />
+              <span id="itemCountValue">2</span>
+            </label>
+          </div>
+          <div class="risk-card">
+            <div class="risk-gauge" aria-hidden="true">
+              <div id="riskFill"></div>
+            </div>
+            <p class="risk-label">Predicted risk score</p>
+            <strong id="riskScore">0.71</strong>
+            <span id="riskBand" class="risk-band high">High risk</span>
+            <p id="riskReason" class="risk-reason">
+              Delivery is delayed and the seller has an elevated prior bad-review rate.
+            </p>
+            <button id="resetButton" type="button">Reset example</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results" aria-labelledby="results-title">
+        <div class="section-heading">
+          <p class="eyebrow">Model result</p>
+          <h2 id="results-title">How the model performed</h2>
+        </div>
+        <div class="result-grid">
+          <article>
+            <span>PR-AUC</span>
+            <strong>0.5612</strong>
+            <p>Main metric for finding rare bad-review orders.</p>
+          </article>
+          <article>
+            <span>ROC-AUC</span>
+            <strong>0.7964</strong>
+            <p>Overall ranking strength across risky and normal orders.</p>
+          </article>
+          <article>
+            <span>Balanced mode</span>
+            <strong>0.4681</strong>
+            <p>Precision at threshold 0.50 with broader coverage.</p>
+          </article>
+          <article>
+            <span>High-precision mode</span>
+            <strong>0.8188</strong>
+            <p>Precision for reviewing the highest-confidence risky orders.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="charts" aria-labelledby="charts-title">
+        <div class="section-heading">
+          <p class="eyebrow">Evidence</p>
+          <h2 id="charts-title">Charts from the model analysis</h2>
+        </div>
+        <div class="chart-grid">
+          <figure>
+            <img src="assets/business_threshold_tradeoff.png" alt="Business threshold tradeoff chart" />
+            <figcaption>
+              Shows how different risk thresholds affect estimated savings and support workload.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="assets/precision_policy_tradeoff.png" alt="Precision policy tradeoff chart" />
+            <figcaption>
+              Compares high-precision support review policies against their recall tradeoff.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="assets/learning_curve.png" alt="Learning curve chart" />
+            <figcaption>
+              Shows the model becoming more stable as more training data is used.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="assets/time_validation_pr_auc.png" alt="Future-period validation chart" />
+            <figcaption>
+              Tests how well models perform on later orders instead of only random test splits.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="business" aria-labelledby="business-title">
+        <div class="section-heading">
+          <p class="eyebrow">Business view</p>
+          <h2 id="business-title">What a support team would see</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Risk</th>
+                <th>Reason</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ORD-1042</td>
+                <td><span class="pill critical">Critical</span></td>
+                <td>Late delivery plus risky seller history</td>
+                <td>Immediate support follow-up</td>
+              </tr>
+              <tr>
+                <td>ORD-1187</td>
+                <td><span class="pill high">High</span></td>
+                <td>High category risk and long delivery time</td>
+                <td>Prioritize for support monitoring</td>
+              </tr>
+              <tr>
+                <td>ORD-1260</td>
+                <td><span class="pill medium">Medium</span></td>
+                <td>Multi-item order with moderate seller risk</td>
+                <td>Monitor if support capacity allows</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="limitations" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Limitations</p>
+          <h2 id="limits-title">What this does not claim</h2>
+        </div>
+        <div class="limit-list">
+          <p>The dataset is public and historical, not live company data.</p>
+          <p>Future-period validation was harder than random-split validation.</p>
+          <p>Real deployment would need monitoring, support-ticket data, and company-specific cost assumptions.</p>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

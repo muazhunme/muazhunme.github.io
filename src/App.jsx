@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const projects = [
   {
@@ -62,6 +62,25 @@ const projects = [
       {
         label: "View GitHub",
         href: "https://github.com/muazhunme/automation-roi-calculator",
+      },
+    ],
+  },
+  {
+    code: "P07",
+    title: "E-Commerce Order Risk Prediction",
+    type: "Machine Learning / Risk Scoring / Customer Experience",
+    description:
+      "A machine learning case study that predicts which ecommerce orders are most likely to lead to a poor customer experience, then explains the risk in a business-friendly frontend demo.",
+    tools: "Python, Pandas, Scikit-learn, LightGBM, XGBoost, SHAP, GitHub Pages",
+    status: "Live demo",
+    links: [
+      {
+        label: "Open live demo",
+        href: "https://muazhunme.github.io/ecommerce-ml-order-risk/",
+      },
+      {
+        label: "View GitHub",
+        href: "https://github.com/muazhunme/muazhunme.github.io/tree/animated-character-loop/projects/ecommerce-ml-order-risk",
       },
     ],
   },
@@ -135,6 +154,70 @@ const skills = [
   "GitHub",
 ];
 
+const laughFrames = [
+  {
+    src: "/character/laugh-closed.png",
+    label: "closed grin",
+    duration: 140,
+  },
+  {
+    src: "/character/laugh-small.png",
+    label: "small laugh",
+    duration: 110,
+  },
+  {
+    src: "/character/laugh-wide.png",
+    label: "full laugh",
+    duration: 165,
+  },
+  {
+    src: "/character/laugh-small.png",
+    label: "small laugh",
+    duration: 105,
+  },
+  {
+    src: "/character/laugh-closed.png",
+    label: "closed grin",
+    duration: 135,
+  },
+];
+
+function LaughingHeroCharacter() {
+  const [frameIndex, setFrameIndex] = useState(0);
+  const currentFrame = laughFrames[frameIndex];
+
+  useEffect(() => {
+    laughFrames.forEach((frame) => {
+      const image = new Image();
+      image.src = frame.src;
+    });
+  }, []);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setFrameIndex((current) => (current + 1) % laughFrames.length);
+    }, currentFrame.duration);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [currentFrame.duration]);
+
+  return (
+    <div
+      className="hero-character-wrap"
+      data-laugh-frame={currentFrame.label}
+      aria-label="Animated floating cartoon portrait of Muaz Khan laughing"
+    >
+      <img
+        className="hero-character"
+        src={currentFrame.src}
+        alt="Cartoon portrait of Muaz Khan laughing"
+        width="1100"
+        height="1100"
+      />
+    </div>
+  );
+}
+
 function App() {
   const [view, setView] = useState("home");
   const isHome = view === "home";
@@ -200,14 +283,8 @@ function App() {
                   </button>
                 </div>
               </div>
-              <div className="hero-art" aria-label="Floating cartoon portrait of Muaz Khan">
-                <img
-                  className="hero-character"
-                  src="/muaz-cartoon-portrait.webp"
-                  alt="Cartoon portrait of Muaz Khan"
-                  width="1100"
-                  height="1100"
-                />
+              <div className="hero-art">
+                <LaughingHeroCharacter />
               </div>
             </section>
 
