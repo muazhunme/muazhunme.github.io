@@ -3,70 +3,6 @@ import { useEffect, useState } from "react";
 const projects = [
   {
     code: "P01",
-    title: "AI-Powered Community Intelligence Dashboard",
-    type: "Data Science / NLP / Business Intelligence",
-    description:
-      "A generalized analytics pipeline that turns community posts, comments, and user data into dashboard-ready CSVs and business insight reports.",
-    tools: "Python, Pandas, NLP, Sentence-Transformers, VADER, KeyBERT",
-    status: "In progress",
-  },
-  {
-    code: "P02",
-    title: "SaaS Churn Analysis Report",
-    type: "Data Analysis",
-    description:
-      "A subscription business analysis focused on churn rate, cancelled users, retention patterns, customer lifetime value, and revenue risk.",
-    tools: "Python, Pandas, SQL, Excel",
-    status: "Demo project",
-  },
-  {
-    code: "P03",
-    title: "Customer Segmentation Analysis",
-    type: "Data Science / Marketing Analytics",
-    description:
-      "A customer analytics project that groups customers by spending behaviour, purchase frequency, value, and marketing potential.",
-    tools: "Python, Pandas, Scikit-learn, Excel",
-    status: "Demo project",
-  },
-  {
-    code: "P04",
-    title: "Product Review Sentiment Analysis",
-    type: "AI / NLP",
-    description:
-      "An NLP project that analyses customer reviews to identify sentiment, common complaints, praised features, and product improvement opportunities.",
-    tools: "Python, NLP, VADER Sentiment, Pandas, Matplotlib",
-    status: "Demo project",
-  },
-  {
-    code: "P05",
-    title: "CSV-to-Business-Insights Generator",
-    type: "AI Automation",
-    description:
-      "A tool concept that takes a business CSV file, cleans basic issues, detects useful columns, creates summary charts, and generates plain-English insights.",
-    tools: "Python, Pandas, Streamlit, AI-assisted analysis",
-    status: "Demo project",
-  },
-  {
-    code: "P06",
-    title: "Business Automation ROI Calculator",
-    type: "Automation / ROI Modelling / Business Analytics",
-    description:
-      "A browser-based automation assessment tool for Australian businesses that estimates readiness, savings, risk range, payback, and whether a process should be automated, improved first, or reviewed by stakeholders.",
-    tools: "JavaScript, HTML/CSS, CSV import, ROI modelling, GitHub Pages",
-    status: "Live project",
-    links: [
-      {
-        label: "Open live app",
-        href: "https://muazhunme.github.io/automation-roi-calculator/",
-      },
-      {
-        label: "View GitHub",
-        href: "https://github.com/muazhunme/automation-roi-calculator",
-      },
-    ],
-  },
-  {
-    code: "P07",
     title: "E-Commerce Order Risk Prediction",
     type: "Machine Learning / Risk Scoring / Customer Experience",
     description:
@@ -81,6 +17,70 @@ const projects = [
       {
         label: "View GitHub",
         href: "https://github.com/muazhunme/muazhunme.github.io/tree/animated-character-loop/projects/ecommerce-ml-order-risk",
+      },
+    ],
+  },
+  {
+    code: "P02",
+    title: "AI-Powered Community Intelligence Dashboard",
+    type: "Data Science / NLP / Business Intelligence",
+    description:
+      "A generalized analytics pipeline that turns community posts, comments, and user data into dashboard-ready CSVs and business insight reports.",
+    tools: "Python, Pandas, NLP, Sentence-Transformers, VADER, KeyBERT",
+    status: "In progress",
+  },
+  {
+    code: "P03",
+    title: "SaaS Churn Analysis Report",
+    type: "Data Analysis",
+    description:
+      "A subscription business analysis focused on churn rate, cancelled users, retention patterns, customer lifetime value, and revenue risk.",
+    tools: "Python, Pandas, SQL, Excel",
+    status: "Demo project",
+  },
+  {
+    code: "P04",
+    title: "Customer Segmentation Analysis",
+    type: "Data Science / Marketing Analytics",
+    description:
+      "A customer analytics project that groups customers by spending behaviour, purchase frequency, value, and marketing potential.",
+    tools: "Python, Pandas, Scikit-learn, Excel",
+    status: "Demo project",
+  },
+  {
+    code: "P05",
+    title: "Product Review Sentiment Analysis",
+    type: "AI / NLP",
+    description:
+      "An NLP project that analyses customer reviews to identify sentiment, common complaints, praised features, and product improvement opportunities.",
+    tools: "Python, NLP, VADER Sentiment, Pandas, Matplotlib",
+    status: "Demo project",
+  },
+  {
+    code: "P06",
+    title: "CSV-to-Business-Insights Generator",
+    type: "AI Automation",
+    description:
+      "A tool concept that takes a business CSV file, cleans basic issues, detects useful columns, creates summary charts, and generates plain-English insights.",
+    tools: "Python, Pandas, Streamlit, AI-assisted analysis",
+    status: "Demo project",
+  },
+  {
+    code: "P07",
+    title: "Business Automation ROI Calculator",
+    type: "Automation / ROI Modelling / Business Analytics",
+    description:
+      "A browser-based automation assessment tool for Australian businesses that estimates readiness, savings, risk range, payback, and whether a process should be automated, improved first, or reviewed by stakeholders.",
+    tools: "JavaScript, HTML/CSS, CSV import, ROI modelling, GitHub Pages",
+    status: "Live project",
+    links: [
+      {
+        label: "Open live app",
+        href: "https://muazhunme.github.io/automation-roi-calculator/",
+      },
+      {
+        label: "View GitHub",
+        href: "https://github.com/muazhunme/automation-roi-calculator",
       },
     ],
   },
